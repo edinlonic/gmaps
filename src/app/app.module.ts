@@ -3,14 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// Import GMAPs
+import { AgmCoreModule } from '@agm/core';
+import {DataService} from "./services/data.service";
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'KEY HERE'
+    })
   ],
-  providers: [],
+  exports: [
+
+  ],
+  providers: [ DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
