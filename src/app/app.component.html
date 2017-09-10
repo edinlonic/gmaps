@@ -22,8 +22,13 @@
       </div>
     </div>
 
-    <div class="routes" *ngFor="let r of routes">
-      <agm-map-directions ></agm-map-directions>
+    <div class="routes" *ngFor="let stp of stops">
+      <agm-map-directions
+        [origin_lat]="stp.lat"
+        [origin_lng]="stp.lng"
+        [destination_lat]="stp.dlat"
+        [destination_lng]="stp.dlng"
+      ></agm-map-directions>
     </div>
 
   </agm-map>

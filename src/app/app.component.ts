@@ -10,7 +10,7 @@ import { DirectionsMapDirective } from './directives/map-directions.directive';
 export class AppComponent implements OnInit{
 
   getMapData: any;
-  mapConfing: any;
+  distanceData: any;
 
   lat: number;
   lng: number;
@@ -19,7 +19,10 @@ export class AppComponent implements OnInit{
 
 
   markers: any = [];
-  routes: any = [];
+
+  stops: any = [];
+
+  distance: any = {};
 
   zoom: number = 12;
   scrollwheel: boolean = false;
@@ -31,28 +34,29 @@ export class AppComponent implements OnInit{
     this.getMapData = this._dataService.getFileData()
       .subscribe(
         (res) => {
-          this.mapConfing = res;
+          this.distanceData = res;
 
-          this.lat = this.mapConfing.pickup.location.lat;
-          this.lng = this.mapConfing.pickup.location.lng;
+          console.log(this.distanceData);
 
-          this.markers.push(this.mapConfing.pickup, this.mapConfing.dropoff);
-          this.mapConfing.stops.forEach((obj, index) => {
+          this.lat = this.distanceData.pickup.location.lat;
+          this.lng = this.distanceData.pickup.location.lng;
+
+          this.markers.push(this.distanceData.pickup, this.distanceData.dropoff);
+          this.distanceData.stops.forEach((obj, index) => {
             this.markers.push(obj);
           })
 
-          this.markers.forEach((obj, index) => {
-            this.routes.push(
+          for (let i = 0; i < this.distanceData.stops.length - 1; i++) {
+            this.stops.push(
               {
-                origin_lat: obj.location.lat,
-                origin_lng: obj.location.lng,
-                destination_lat: obj.location.lat.index,
-                destination_lng: obj.location.lng.index
-              }
-            )
-          })
+                lat: this.distanceData.stops[i].location.lat,
+                lng: this.distanceData.stops[i].location.lng,
+                dlat: this.distanceData.stops[i+1].location.lat,
+                dlng: this.distanceData.stops[i+1].location.lng
+              })
+          };
 
-          console.log(this.routes);
+          console.log(this.distance);
 
         },
         (error) => console.log("error : " + error),
