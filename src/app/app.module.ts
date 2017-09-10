@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-
 import { AppComponent } from './app.component';
 
 // Import GMAPs
@@ -19,7 +18,7 @@ import { DirectionsMapDirective  } from './directives/map-directions.directive';
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCKvcmdt69DOW-_INM7ltCooGLRSfjtclM'
+      apiKey: 'KEY IN HERE!'
     }),
     FormsModule,
     HttpModule

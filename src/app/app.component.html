@@ -1,36 +1,41 @@
 <div class="gmap-container">
+
+  <!-- AGM MAP - MAIN AGM DIRECTIVE FOR A MAP -->
   <agm-map
     [latitude]="lat"
     [longitude]="lng"
     [zoom]="zoom"
     [styles]="styles" [scrollwheel]="scrollwheel">
 
+    <!-- LOOP THROUGH ALL MARKERS AND SOLVE STATUS ISSUES-->
+
     <div class="markers" *ngFor="let m of markers">
       <div class="done-markers" *ngIf="m.status == 'done'">
         <agm-marker
           [latitude]="m.location.lat"
           [longitude]="m.location.lng"
-          [iconUrl] = "doneMarkerImg">
+          [iconUrl]="doneMarkerImg">
         </agm-marker>
       </div>
       <div class="pending-markers" *ngIf="m.status == 'pending'">
         <agm-marker
           [latitude]="m.location.lat"
           [longitude]="m.location.lng"
-          [iconUrl] = "pendingMarkerImg">
+          [iconUrl]="pendingMarkerImg">
         </agm-marker>
       </div>
     </div>
 
-    <div class="routes" *ngFor="let stp of stops">
+    <!-- SHOW ROUTES -->
+
+    <div class="routes" *ngFor="let rst of routes; let i of index">
       <agm-map-directions
-        [origin_lat]="stp.lat"
-        [origin_lng]="stp.lng"
-        [destination_lat]="stp.dlat"
-        [destination_lng]="stp.dlng"
+        [origin_lat]="rst[0]"
+        [origin_lng]="rst[1]"
+        [destination_lat]="rst[2]"
+        [destination_lng]="rst[3]"
       ></agm-map-directions>
     </div>
-
   </agm-map>
 
 </div>
