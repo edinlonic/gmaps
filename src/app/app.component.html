@@ -4,6 +4,28 @@
     [longitude]="lng"
     [zoom]="zoom"
     [styles]="styles" [scrollwheel]="scrollwheel">
+
+    <div class="markers" *ngFor="let m of markers">
+      <div class="done-markers" *ngIf="m.status == 'done'">
+        <agm-marker
+          [latitude]="m.location.lat"
+          [longitude]="m.location.lng"
+          [iconUrl] = "doneMarkerImg">
+        </agm-marker>
+      </div>
+      <div class="pending-markers" *ngIf="m.status == 'pending'">
+        <agm-marker
+          [latitude]="m.location.lat"
+          [longitude]="m.location.lng"
+          [iconUrl] = "pendingMarkerImg">
+        </agm-marker>
+      </div>
+    </div>
+
+    <div class="routes" *ngFor="let r of routes">
+      <agm-map-directions ></agm-map-directions>
+    </div>
+
   </agm-map>
 
 </div>
