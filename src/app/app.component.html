@@ -9,7 +9,7 @@
 
     <!-- LOOP THROUGH ALL MARKERS AND SOLVE STATUS ISSUES-->
 
-    <div class="markers" *ngFor="let m of markers">
+    <div class="markers" *ngFor="let m of markers; let i = index">
       <div class="done-markers" *ngIf="m.status == 'done'">
         <agm-marker
           [latitude]="m.location.lat"
@@ -21,9 +21,12 @@
         <agm-marker
           [latitude]="m.location.lat"
           [longitude]="m.location.lng"
-          [iconUrl]="pendingMarkerImg">
+          [iconUrl]="svgIconArray[i]">
         </agm-marker>
       </div>
+      <script>
+        console.log(i);
+      </script>
     </div>
 
     <!-- SHOW ROUTES -->

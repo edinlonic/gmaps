@@ -1,5 +1,5 @@
 {
-  "status": "done",
+  "status": "pending",
   "city": "Bengaluru",
   "estimated_distance": "13.5",
   "total_duration": "",
@@ -18,15 +18,15 @@
     "address": "444, 1st main, 7th Cross, 2nd Stage, Indiranagar",
     "wait_duration": "1 min",
     "location": {
-      "lat": 12.932700000000001,
-      "lng": 77.644799000000006
+      "lat": 12.946700000000001,
+      "lng": 77.674929000000006
     },
     "time": "02:45 PM"
   },
   "truck_type": "Tata Pickup",
   "header_to": "Indiranagar",
   "pickup": {
-    "status": "done",
+    "status": "pending",
     "distance": "12.2",
     "name": "Warehouse-1",
     "address": "327, 13th main, Jakkasandra, HSR Layout",
@@ -42,7 +42,7 @@
   "total_distance": "14",
   "stops": [
     {
-      "status": "done",
+      "status": "pending",
       "distance": "3.2",
       "name": "",
       "address": "100, Infinity Road, Bengaluru",
@@ -54,7 +54,7 @@
       "time": "01:00 PM"
     },
     {
-      "status": "done",
+      "status": "pending",
       "distance": "2",
       "name": "",
       "address": "200, Zero Road, Bengaluru",
@@ -66,7 +66,7 @@
       "time": "01:30 PM"
     },
     {
-      "status": "done",
+      "status": "pending",
       "distance": "4",
       "name": "",
       "address": "300, Midway Road, Bengaluru",
