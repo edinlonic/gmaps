@@ -18,7 +18,7 @@ import { DirectionsMapDirective  } from './directives/map-directions.directive';
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: 'KEY IN HERE!'
+      apiKey: 'Google api key here'
     }),
     FormsModule,
     HttpModule
